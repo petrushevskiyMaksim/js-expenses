@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Expenses-App</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/reset.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+	</head>
+	<body>
+		<main>
+			<div class="expenses">
+				<div class="container">
+					<h1 class="expenses__title title">Учет расходов</h1>
+					<div class="expenses__inner">
+						<div class="expenses__input-wrapper">
+							<div class="expenses__input-money rub">
+								<input
+									id="expenses-input"
+									class="expenses__input"
+									type="number"
+									min="1"
+									tabindex="1"
+								/>
+							</div>
+							<select id="selectCategory" class="expenses__select">
+								<option hidden disabled selected value="Категория">
+									Категория расходов
+								</option>
+								<option value="Транспорт">Транспорт</option>
+								<option value="Кафе и рестораны">Кафе и рестораны</option>
+								<option value="Аптека">Аптека</option>
+								<option value="Развлечения">Развлечения</option>
+								<option value="Платежи">Платежи</option>
+							</select>
+						</div>
+
+						<button id="expenses-button" class="expenses__button" tabindex="2">
+							<span class="expenses__button-text">Добавить</span>
+						</button>
+
+						<div class="expenses__statistics statistics">
+							<div class="statistics__limit">
+								<span class="statistics__limit-title title"> Лимит: </span>
+								<span
+									id="limit-value"
+									class="statistics__limit-value rub"
+								></span>
+								<img
+									id="changeLimit"
+									class="statistics__limit-change"
+									src="./images/change-limit.svg"
+									alt="смена лимита"
+								/>
+							</div>
+							<div class="statistics__total">
+								<span class="statistics__total-title title">
+									Всего расходов:
+								</span>
+								<span
+									id="totalExpensesValue"
+									class="statistics__total-value rub"
+									>0</span
+								>
+							</div>
+							<div class="statistics__status">
+								<span class="statistics__status-title title"> Статус: </span>
+								<span id="status-value" class="statistics__status-value"
+									>Лимит в порядке</span
+								>
+							</div>
+							<div class="expenses__button-reset-wrapper">
+								<button id="buttonResetExpenses" class="expenses__button-reset">
+									Сбросить расходы
+								</button>
+							</div>
+						</div>
+
+						<div class="expenses__history">
+							<div class="expenses__history-title-wrapper">
+								<h2 class="expenses__history-title title">История:</h2>
+							</div>
+
+							<ol id="expensesHistoryList" class="expenses__history-list">
+								<li class="expenses__history-item rub">100</li>
+								<li class="expenses__history-item rub">200</li>
+								<li class="expenses__history-item rub">300</li>
+								<li class="expenses__history-item rub">400</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="popupChange" class="popup-change">
+				<div class="popup-change__inner">
+					<h2 class="popup-change__title">Новый лимит</h2>
+					<img
+						id="closePopup"
+						class="popup-change__icon-close"
+						src="./images/icon-close-popup.svg"
+						alt="закрыть попап"
+					/>
+					<div class="popup-change__body">
+						<div class="popup-change__input-wrapper">
+							<div class="popup-change__input-inner rub">
+								<input
+									id="inputChange"
+									class="popup-change__input"
+									type="number"
+								/>
+							</div>
+							<p id="popupChangeTextValidation" class="popup-change__text none">
+								Введите положительное числовое значение
+							</p>
+						</div>
+						<button
+							id="buttonChange"
+							class="popup-change__button"
+							type="button"
+						>
+							Задать лимит
+						</button>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script src="./js/script.js"></script>
+	</body>
+</html>

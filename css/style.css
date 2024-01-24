@@ -1,0 +1,257 @@
+body {
+	font-family: Inter, sans-serif;
+	font-size: 32px;
+	line-height: normal;
+	color: #000;
+}
+
+.none {
+	display: none;
+}
+
+.title {
+	font-weight: 700;
+}
+
+.expenses {
+	padding: 50px 0;
+}
+
+.container {
+	max-width: 930px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.expenses__inner {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 30px;
+	row-gap: 40px;
+}
+
+.expenses__title {
+	margin-bottom: 40px;
+}
+
+.expenses__input-wrapper {
+	width: 485px;
+}
+
+.expenses__input-money {
+	width: 100%;
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	padding: 10px 10px 10px 25px;
+	border: 1px solid #000;
+	border-radius: 10px;
+}
+
+.expenses__input {
+	width: 100%;
+	margin-right: 10px;
+	border: none;
+}
+
+.rub::after {
+	content: ' руб.';
+}
+
+.expenses__input-money:hover {
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 5px 2px;
+}
+
+.expenses__select {
+	width: 100%;
+	padding: 10px 20px 10px 20px;
+	font-size: 32px;
+	border: solid #000 1px;
+	border-radius: 10px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+}
+
+.expenses__button {
+	width: 370px;
+	max-height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 10px 110px;
+	border-radius: 10px;
+	color: #fff;
+	background-color: #0094ff;
+	transition: background-color 0.3s ease-in;
+}
+
+.expenses__button-text {
+	transition: transform 0.3s ease-in, color 0.3s ease-in;
+}
+
+.expenses__button:hover .expenses__button-text {
+	transform: scale(1.2);
+	font-weight: 700;
+}
+
+.statistics {
+	width: 485px;
+	display: flex;
+	flex-direction: column;
+	row-gap: 10px;
+}
+
+.statistics__limit-change {
+	margin-top: -10px;
+	margin-left: 10px;
+	cursor: pointer;
+}
+
+.statistics__total {
+	margin-bottom: 25px;
+}
+
+.statistics__status {
+	margin-bottom: 100px;
+}
+
+.statistics__status-value {
+	color: green;
+	font-weight: 500;
+}
+.statistics__status-value--red {
+	color: red;
+	font-weight: 700;
+}
+
+.expenses__history {
+	position: relative;
+	width: 370px;
+	height: 332px;
+	overflow: hidden;
+	overflow-y: auto;
+	border-radius: 10px;
+	background-color: rgba(186, 186, 186, 0.5);
+}
+
+.expenses__history-title-wrapper {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 370px;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px 10px 0px 0px;
+	background-color: #9c9595;
+}
+
+.expenses__button-reset-wrapper {
+	width: 485px;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.expenses__button-reset {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 10px 0;
+	border-radius: 10px;
+	color: #fff;
+	background-color: #f00;
+	transition: transform 0.3s ease-in-out;
+}
+
+.expenses__button-reset:hover {
+	transform: scale(1.2);
+	font-weight: 700;
+}
+
+.popup-change {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.6);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+}
+
+.popup-change--open {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+}
+
+.popup-change__inner {
+	position: relative;
+	width: 990px;
+	height: 525px;
+	padding: 50px 60px;
+	background-color: #fff;
+}
+
+.popup-change__title {
+	font-weight: 700;
+	margin-bottom: 150px;
+}
+
+.popup-change__icon-close {
+	position: absolute;
+	top: 40px;
+	right: 35px;
+	cursor: pointer;
+}
+
+.popup-change__body {
+	display: flex;
+	justify-content: space-between;
+}
+
+.popup-change__input-wrapper {
+	width: 485px;
+}
+
+.popup-change__input-inner {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding: 10px 10px 10px 25px;
+	border: 1px solid #000;
+	border-radius: 10px;
+}
+
+.popup-change__input {
+	width: 100%;
+	margin-right: 10px;
+}
+
+.popup-change__text {
+	font-weight: 700;
+	color: #f00;
+}
+
+.popup-change__button {
+	width: 370px;
+	max-height: 60px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 10px 0px;
+	border-radius: 10px;
+	color: #fff;
+	background-color: #0094ff;
+	transition: background-color 0.3s ease-in;
+}
