@@ -48,10 +48,9 @@
 						<div class="expenses__statistics statistics">
 							<div class="statistics__limit">
 								<span class="statistics__limit-title title"> Лимит: </span>
-								<span
-									id="limit-value"
-									class="statistics__limit-value rub"
-								></span>
+								<span id="limit-value" class="statistics__limit-value rub">
+									<!-- 10000 -->
+								</span>
 								<img
 									id="changeLimit"
 									class="statistics__limit-change"
@@ -75,7 +74,10 @@
 									>Лимит в порядке</span
 								>
 							</div>
-							<div class="expenses__button-reset-wrapper">
+							<div
+								class="expenses__button-reset-wrapper"
+								title="Сбросит Историю расходов, Всего расходов и Статус "
+							>
 								<button id="buttonResetExpenses" class="expenses__button-reset">
 									Сбросить расходы
 								</button>
@@ -84,7 +86,7 @@
 
 						<div class="expenses__history">
 							<div class="expenses__history-title-wrapper">
-								<h2 class="expenses__history-title title">История:</h2>
+								<h2 class="expenses__history-title title">История расходов:</h2>
 							</div>
 
 							<ol id="expensesHistoryList" class="expenses__history-list">

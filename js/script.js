@@ -1,11 +1,12 @@
 const STORAGE_LABEL_LIMIT = 'LIMIT';
 const STORAGE_LABEL_EXPENSES = 'expenses';
-let LIMIT = parseInt(localStorage.getItem(STORAGE_LABEL_LIMIT));
 const CURRENCY = 'руб.';
 const STATUS_IN_LIMIT = 'Лимит в порядке';
 const STATUS_OUT_LIMIT = 'Лимит превышен';
 const STATUS_OUT_LIMIT_CLASSNAME = 'statistics__status-value--red';
 const POPUP_OPEN_CLASSNAME = 'popup-change--open';
+
+let LIMIT = 10000;
 
 const inputNode = document.getElementById('expenses-input');
 const buttonNode = document.getElementById('expenses-button');
@@ -24,11 +25,29 @@ const popupChangeTextValidationNode = document.getElementById(
 	'popupChangeTextValidation'
 );
 
+let expenses = [];
+
+init();
+
+initStorageLimit();
+
+function initStorageLimit() {
+	const limitFromStorage = parseInt(localStorage.getItem(STORAGE_LABEL_LIMIT));
+
+	if (!limitFromStorage) {
+		return;
+	}
+
+	LIMIT = limitFromStorage;
+
+	limitNode.innerText = LIMIT;
+}
+
 const expensesFromStorageString = localStorage.getItem(STORAGE_LABEL_EXPENSES);
 const expensesFromStorage = JSON.parse(expensesFromStorageString);
-let expenses = expensesFromStorage;
-debugger;
-init();
+if (Array.isArray(expensesFromStorage)) {
+	expenses = expensesFromStorage;
+}
 
 render(expenses);
 
@@ -49,7 +68,7 @@ function init() {
 }
 
 function getExpenseFromUser() {
-	const expense = parseInt(inputNode.value.trim());
+	const expense = parseInt(inputNode.value);
 	const checkExpense = Math.sign(expense);
 
 	if (!expense || checkExpense < 1) {
@@ -77,7 +96,7 @@ function trackExpens(newCost) {
 	expenses.push(newCost);
 
 	const expensesString = JSON.stringify(expenses);
-	console.log(expensesString);
+
 	localStorage.setItem(STORAGE_LABEL_EXPENSES, expensesString);
 }
 
@@ -133,6 +152,7 @@ function renderStatus(sumExpenses) {
 
 buttonResetNode.addEventListener('click', () => {
 	expenses = [];
+	localStorage.removeItem(STORAGE_LABEL_EXPENSES);
 	render(expenses);
 });
 
@@ -155,9 +175,9 @@ buttonChangeNode.addEventListener('click', function () {
 		return;
 	}
 
-	LIMIT = newLimit;
-
 	localStorage.setItem(STORAGE_LABEL_LIMIT, newLimit);
+
+	LIMIT = newLimit;
 
 	init();
 
